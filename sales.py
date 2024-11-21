@@ -16,6 +16,10 @@ def daily_sales(available_items, inventory_records, current_day):
     available_items: (integer) This function returns this integer which updates the available items at the current day.
     The function will also update the inventory_records (For sales and restocking) for a given current day. 
     '''
-
+    if current_day % 7 == 0 or current_day == 0:
+        return available_items
+    sold_units = random.randint(0, 200)  
+    available_items -= sold_units  
+    inventory_records.append([current_day, sold_units, 0, available_items])
        
     return available_items  
